@@ -1,12 +1,11 @@
-import Feedback from '../../../components/Feedback';
 import ListTitle from '../../../components/ListTitle';
-import { useBasic } from '../context';
+import { useBasicUsers } from '../context';
 
 function Title() {
-    const { data, status, error } = useBasic();
+    const { data, status } = useBasicUsers();
 
     if (status !== 'success') {
-        return <Feedback status={status} error={error} />;
+        return null;
     }
 
     return <ListTitle>Total Users: {data.total}</ListTitle>;

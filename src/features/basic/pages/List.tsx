@@ -1,16 +1,16 @@
 import { Box } from '@mui/material';
 import Title from '../components/Title';
 import UserList from '../components/UserList';
-import { BasicProvider } from '../context';
+import { BasicUserProvider } from '../context';
 
 function List() {
     return (
-        <BasicProvider>
+        <BasicUserProvider>
             <Box sx={{ p: 3 }}>
                 <Title />
                 <UserList />
             </Box>
-        </BasicProvider>
+        </BasicUserProvider>
     );
 }
 

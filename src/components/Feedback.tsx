@@ -2,11 +2,13 @@ import { Box } from '@mui/material';
 
 type FeedbackProps = {
     status: 'idle' | 'loading' | 'error';
+    idleMessage?: string;
+
     error?: Error;
 };
 
 const Text = {
-    idle: 'Waiting',
+    idle: 'Authenticate First',
     loading: 'Loading...',
     error: 'Error',
 };
