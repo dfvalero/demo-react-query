@@ -2,9 +2,6 @@ import { Box } from '@mui/material';
 
 type FeedbackProps = {
     status: 'idle' | 'loading' | 'error';
-    idleMessage?: string;
-
-    error?: Error;
 };
 
 const Text = {
@@ -13,11 +10,10 @@ const Text = {
     error: 'Error',
 };
 
-function Feedback({ status, error }: FeedbackProps) {
+function Feedback({ status }: FeedbackProps) {
     return (
         <Box textAlign="center" sx={{ my: 2 }}>
-            <span>{Text[status]}</span>
-            {error && <span>{error.message}</span>}
+            {Text[status]}
         </Box>
     );
 }

@@ -1,7 +1,6 @@
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { PostUserRequest, User } from '../../../types';
 import { getUsers, postUser } from '../../../api';
-import { useBasicAuth } from './auth';
 
 type IdleState = {
     status: 'idle';
@@ -37,7 +36,6 @@ const BasicUserContext = createContext<
 >(undefined);
 
 function BasicUserProvider({ children }: { children: ReactNode }) {
-    const { isAuthenticated } = useBasicAuth();
     const [state, setState] = useState<State>({
         status: 'idle',
         data: undefined,
@@ -74,19 +72,6 @@ function BasicUserProvider({ children }: { children: ReactNode }) {
             });
         });
     };
-
-    const cleanUsers = () => {
-        setState({ status: 'idle', data: undefined, error: undefined })
-    }
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            fetchUsers();
-            return;
-        }
-
-        cleanUsers();
-    }, [isAuthenticated]);
 
     return (
         <BasicUserContext.Provider value={{ state, actions: { fetchUsers, addUser } }}>

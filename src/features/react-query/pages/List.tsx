@@ -3,10 +3,11 @@ import Title from '../components/Title';
 import UserList from '../components/UserList';
 
 function List() {
+    console.log('mount');
     return (
         <Box sx={{ p: 3 }} textAlign="center">
             <Typography sx={{ mb: 2 }} component="h2" variant="h4">
-                Basic
+                React Query
             </Typography>
             <Title />
             <UserList />
