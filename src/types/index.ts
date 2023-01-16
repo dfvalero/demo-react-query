@@ -13,3 +13,8 @@ export type User = {
     address: Address;
     image: string;
 };
+
+export type GetUsersResponse = {
+    users: User[];
+    total: number;
+};
