@@ -9,9 +9,7 @@ function Title() {
         return <Feedback status={status} error={error} />;
     }
 
-    return (
-        <ListTitle>Total Users: {data.total}</ListTitle>
-    );
+    return <ListTitle>Total Users: {data.total}</ListTitle>;
 }
 
 export default Title;

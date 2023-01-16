@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const generateUser = () => {
-    const gender =  Math.random() < 0.5 ? 'male' : 'female'
+    const gender = Math.random() < 0.5 ? 'male' : 'female';
 
     return {
         id: faker.datatype.uuid(),
@@ -20,11 +20,11 @@ const generateUser = () => {
         jobTitle: faker.name.jobTitle(),
         address: { city: faker.address.city() },
         image: faker.image.people(300, 300, true),
-    }
-}
+    };
+};
 const generateUsers = (quantity) => {
-    return [...Array(quantity)].map(generateUser)
-}
+    return [...Array(quantity)].map(generateUser);
+};
 
 const users = generateUsers(15);
 
@@ -33,24 +33,15 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-    console.log(req.body);
     const id = faker.datatype.uuid();
     const { username, firstName, lastName, age, jobTitle, address } = req.body;
     const image = faker.image.people(300, 300, true);
 
-    users.unshift({
-        id,
-        username,
-        firstName,
-        lastName,
-        age,
-        jobTitle,
-        address,
-        image,
-    });
-    res.send({ message: `user ${id} added` })
-})
+    const newUser = { id, username, firstName, lastName, age, jobTitle, address, image };
 
-app.listen(3051, () =>
-    console.log('Example app listening on port 3051!'),
-);
+    users.unshift(newUser);
+
+    res.send({ user: newUser, message: `user ${id} added` });
+});
+
+app.listen(3051, () => console.log('Example app listening on port 3051!'));

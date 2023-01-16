@@ -1,4 +1,4 @@
-import { GetUsersResponse } from '../types';
+import { GetUsersResponse, PostUserRequest, PostUserResponse } from '../types';
 
 export const getUsers = async (): Promise<GetUsersResponse> => {
     const response = await fetch('http://localhost:3051/users');
@@ -6,17 +6,12 @@ export const getUsers = async (): Promise<GetUsersResponse> => {
     return await response.json();
 };
 
-export const postUser = async () => {
-    return fetch('http://localhost:3051/users', {
+export const postUser = async (user: PostUserRequest): Promise<PostUserResponse> => {
+    const response = await fetch('http://localhost:3051/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            username: 'tanyo',
-            firstName: 'David',
-            lastName: 'Fernandez',
-            age: 37,
-            jobTitle: 'Frontend Developer',
-            address: { city: 'Barcelona '}
-        })
-    })
-}
+        body: JSON.stringify(user),
+    });
+
+    return await response.json();
+};

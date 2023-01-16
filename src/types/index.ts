@@ -17,3 +17,10 @@ export type GetUsersResponse = {
     users: User[];
     total: number;
 };
+
+export type PostUserRequest = Omit<User, 'id' | 'image'>;
+
+export type PostUserResponse = {
+    user: User;
+    message: string;
+};

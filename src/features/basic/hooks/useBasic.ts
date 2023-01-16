@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { User } from '../../../types';
+import { PostUserRequest, User } from '../../../types';
 import { getUsers, postUser } from '../../../api';
 
 type IdleState = {
@@ -46,9 +46,25 @@ export const useBasic = () => {
             });
     }, []);
 
-    const post = () => {
-        postUser();
-    }
+    const add = (user: PostUserRequest) => {
+        postUser(user).then((response) => {
+            setState((prevState) => {
+                if (prevState.status === 'success') {
+                    const newUsers = [response.user, ...prevState.data.users];
 
-    return { ...state, post };
+                    return {
+                        ...prevState,
+                        data: {
+                            users: newUsers,
+                            total: newUsers.length,
+                        },
+                    };
+                }
+
+                return prevState;
+            });
+        });
+    };
+
+    return { ...state, add };
 };
