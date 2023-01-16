@@ -11,8 +11,13 @@ function Header() {
         <AppBar component="nav">
             <Toolbar>
                 <Box>
-                    {routes.map(route => (
-                        <Button key={route.name} sx={linkStyle} component={RouterLink} to={route.path}>
+                    {routes.map((route) => (
+                        <Button
+                            key={route.name}
+                            sx={linkStyle}
+                            component={RouterLink}
+                            to={route.path}
+                        >
                             {route.name}
                         </Button>
                     ))}

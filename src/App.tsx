@@ -19,8 +19,13 @@ function App() {
                     <Router>
                         <Routes>
                             <Route path="/" element={<Layout />}>
-                                {routes.map(route => (
-                                    <Route key={route.name} index={route.path === '/'} path={route.path} element={route.component} />
+                                {routes.map((route) => (
+                                    <Route
+                                        key={route.name}
+                                        index={route.path === '/'}
+                                        path={route.path}
+                                        element={route.component}
+                                    />
                                 ))}
                                 <Route path="*" element={<div>Not Found</div>} />
                             </Route>
