@@ -8,20 +8,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const generateUser = () => {
-    const gender = Math.random() < 0.5 ? 'male' : 'female';
+const generateUser = () => ({
+    id: faker.datatype.uuid(),
+    username: faker.internet.userName(),
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    age: faker.datatype.number({ max: 100 }),
+    jobTitle: faker.name.jobTitle(),
+    address: { city: faker.address.city() },
+    image: faker.image.people(300, 300, true),
+});
 
-    return {
-        id: faker.datatype.uuid(),
-        username: faker.internet.userName(),
-        firstName: faker.name.firstName(gender),
-        lastName: faker.name.lastName(gender),
-        age: faker.datatype.number({ max: 100 }),
-        jobTitle: faker.name.jobTitle(),
-        address: { city: faker.address.city() },
-        image: faker.image.people(300, 300, true),
-    };
-};
 const generateUsers = (quantity) => {
     return [...Array(quantity)].map(generateUser);
 };

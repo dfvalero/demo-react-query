@@ -86,7 +86,7 @@ function useUsers() {
     if (context === undefined) {
         throw new Error('useUsers must be used within a UsersProvider');
     }
-    
+
     return { ...context.state, ...context.actions };
 }
 

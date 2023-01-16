@@ -6,7 +6,7 @@ export const useBasic = () => {
 
     useEffect(() => {
         context.fetchUsers();
-    }, [])
+    }, []);
 
     return context;
 };
