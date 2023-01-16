@@ -1,12 +1,12 @@
-import { useBasic } from '../hooks/useBasic';
 import Feedback from '../../../components/Feedback';
 import UserList from '../../../components/UserList';
 import UserCard from '../../../components/UserCard';
 import { Button } from '@mui/material';
 import { Fragment } from 'react';
+import { useBasic } from '../hooks/useBasic';
 
 function Title() {
-    const { data, status, error, add } = useBasic();
+    const { data, status, error, addUser } = useBasic();
 
     if (status !== 'success') {
         return <Feedback status={status} error={error} />;
@@ -23,7 +23,7 @@ function Title() {
 
     return (
         <Fragment>
-            <Button sx={{ mb: 2 }} variant="contained" onClick={() => add(user)}>
+            <Button sx={{ mb: 2 }} variant="contained" onClick={() => addUser(user)}>
                 Add user
             </Button>
             <UserList>
