@@ -2,8 +2,8 @@ import { Fragment } from 'react';
 import Feedback from '../../../components/Feedback';
 import UserList from '../../../components/UserList';
 import UserCard from '../../../components/UserCard';
-import { useBasic } from '../hooks/useBasic';
 import UserAdd from '../../../components/UserAdd';
+import { useBasic } from '../context';
 
 function List() {
     const { data, status, error, addUser } = useBasic();

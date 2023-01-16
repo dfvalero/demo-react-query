@@ -1,6 +1,6 @@
 import Feedback from '../../../components/Feedback';
 import ListTitle from '../../../components/ListTitle';
-import { useBasic } from '../hooks/useBasic';
+import { useBasic } from '../context';
 
 function Title() {
     const { data, status, error } = useBasic();

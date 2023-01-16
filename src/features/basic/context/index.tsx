@@ -31,11 +31,11 @@ type State = IdleState | LoadingState | SuccessState | ErrorState;
 type FetchUsers = () => void;
 type AddUser = (user: PostUserRequest) => void;
 
-const UserContext = createContext<
+const BasicContext = createContext<
     { state: State; actions: { fetchUsers: FetchUsers; addUser: AddUser } } | undefined
 >(undefined);
 
-function UsersProvider({ children }: { children: ReactNode }) {
+function BasicProvider({ children }: { children: ReactNode }) {
     const [state, setState] = useState<State>({
         status: 'idle',
         data: undefined,
@@ -73,15 +73,19 @@ function UsersProvider({ children }: { children: ReactNode }) {
         });
     };
 
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
     return (
-        <UserContext.Provider value={{ state, actions: { fetchUsers, addUser } }}>
+        <BasicContext.Provider value={{ state, actions: { fetchUsers, addUser } }}>
             {children}
-        </UserContext.Provider>
+        </BasicContext.Provider>
     );
 }
 
-function useUsers() {
-    const context = useContext(UserContext);
+function useBasic() {
+    const context = useContext(BasicContext);
 
     if (context === undefined) {
         throw new Error('useUsers must be used within a UsersProvider');
@@ -90,4 +94,4 @@ function useUsers() {
     return { ...context.state, ...context.actions };
 }
 
-export { UsersProvider, useUsers };
+export { BasicProvider, useBasic };
