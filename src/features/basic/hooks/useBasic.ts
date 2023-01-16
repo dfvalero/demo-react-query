@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { User } from '../../../types';
-import { getUsers } from '../../../api';
+import { getUsers, postUser } from '../../../api';
 
 type IdleState = {
     status: 'idle';
@@ -46,5 +46,9 @@ export const useBasic = () => {
             });
     }, []);
 
-    return state;
+    const post = () => {
+        postUser();
+    }
+
+    return { ...state, post };
 };

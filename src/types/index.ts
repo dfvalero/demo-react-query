@@ -7,9 +7,8 @@ export type User = {
     username: string;
     firstName: string;
     lastName: string;
-    gender: string;
-    eyeColor: string;
-    university: string;
+    age: number;
+    jobTitle: string;
     address: Address;
     image: string;
 };

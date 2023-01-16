@@ -13,11 +13,11 @@ const cardMediaStyle = (theme: Theme) => ({
 });
 
 const buildDescription = (user: User) => {
-    const { firstName, lastName, gender, eyeColor, university, address } = user;
-    const firstParagraph = `${firstName} ${lastName} it's a ${gender} user with ${eyeColor.toLowerCase()} eyes.`;
-    const secondParagraph = `This user went to ${university} university and lives in ${address.city}.`;
+    const { firstName, lastName, age, jobTitle, address } = user;
+    const firstLine = `${firstName} ${lastName} is ${age} years old, `;
+    const secondLine = `works as a ${jobTitle} and lives in ${address.city}.`;
 
-    return `${firstParagraph} ${secondParagraph}`;
+    return `${firstLine} ${secondLine}`;
 };
 
 function UserCard({ user }: { user: User }) {
