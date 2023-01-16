@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, Theme, Toolbar } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { routes } from './routes';
 
 const linkStyle = (theme: Theme) => ({
     color: theme.palette.common.white,
@@ -10,18 +11,11 @@ function Header() {
         <AppBar component="nav">
             <Toolbar>
                 <Box>
-                    <Button sx={linkStyle} component={RouterLink} to="/">
-                        Basic
-                    </Button>
-                    <Button sx={linkStyle} component={RouterLink} to="/redux">
-                        Redux
-                    </Button>
-                    <Button sx={linkStyle} component={RouterLink} to="/redux-advanced">
-                        Redux Advanced
-                    </Button>
-                    <Button sx={linkStyle} component={RouterLink} to="/react-query">
-                        React Query
-                    </Button>
+                    {routes.map(route => (
+                        <Button key={route.name} sx={linkStyle} component={RouterLink} to={route.path}>
+                            {route.name}
+                        </Button>
+                    ))}
                 </Box>
             </Toolbar>
         </AppBar>
