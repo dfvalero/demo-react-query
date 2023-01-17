@@ -12,8 +12,11 @@ import { routes } from './routes';
 function App() {
     return (
         <ThemeProvider theme={theme}>
+            {/* Basic Approach */}
             <BasicUserProvider>
+                {/* Redux Approach */}
                 <Provider store={store}>
+                    {/* React Query Approach */}
                     <QueryClientProvider client={queryClient}>
                         <CssBaseline />
                         <Router>
