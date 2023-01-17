@@ -9,7 +9,8 @@ const heroStyle = (theme: Theme) => ({
 const heroContentStyle = {
     margin: '0 auto',
     maxWidth: 600,
-    p: 1,
+    pt: 2,
+    pb: 1,
 };
 
 function Hero() {
