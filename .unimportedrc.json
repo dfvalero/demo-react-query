@@ -1,0 +1,6 @@
+{
+  "entry": ["src/main.tsx"],
+  "ignorePatterns": ["**/node_modules/**"],
+  "ignoreUnimported": ["src/vite-env.d.ts"],
+  "ignoreUnused": ["express", "cors"]
+}
