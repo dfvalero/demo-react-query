@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import MUIList from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,8 +10,6 @@ import { useGetCampaigns } from '../hooks/useGetCampaign';
 function List() {
     const campaigns = useGetCampaigns();
 
-    console.log(campaigns.map((campaign) => campaign.id));
-
     return (
         <Box sx={{ p: 3 }} textAlign="center">
             <Typography sx={{ mb: 2 }} component="h2" variant="h4">
@@ -19,7 +18,7 @@ function List() {
             <MUIList>
                 {campaigns.map((campaign) => (
                     <ListItem key={campaign.id} disablePadding>
-                        <ListItemButton component="a" href={`/complexity/${campaign.id}`}>
+                        <ListItemButton component={Link} to={`/complexity/${campaign.id}`}>
                             <ListItemText primary={campaign.name} />
                         </ListItemButton>
                     </ListItem>
