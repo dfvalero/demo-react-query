@@ -11,8 +11,15 @@ const fakePushData: Campaign['pushData'] = [
 const fakeEmailData: Campaign['emailData'] = [
     {
         blocks: [
-            { title: 'Frontendez Profile', text: 'Music and Tech | Música i Tecnologia' },
             {
+                id: '1',
+                type: 'TEXT',
+                title: 'Frontendez Profile',
+                text: 'Music and Tech | Música i Tecnologia',
+            },
+            {
+                id: '2',
+                type: 'IMAGE',
                 image: 'https://pbs.twimg.com/profile_images/918553320574382081/1qvfosZd_400x400.jpg',
                 link: 'https://twitter.com/frontendez',
                 altText: 'Bearded guy',
@@ -25,17 +32,19 @@ const fakeChatData: Campaign['chatData'] = [
     {
         userId: '1',
         messages: [
-            { id: '1', text: 'The electric city!' },
+            { id: '1', type: 'TEXT', text: 'The electric city!' },
             {
                 id: '2',
+                type: 'MEDIA',
                 url: 'https://i.pinimg.com/originals/ad/d5/d3/add5d38fc15e3deab69c225fda998292.jpg',
-                alt: 'Michael and Dwight wearing ski caps',
+                altText: 'Michael and Dwight wearing ski caps',
                 isVideo: false,
             },
             {
                 id: '3',
+                type: 'MEDIA',
                 url: 'https://www.youtube.com/embed/-xbeQ5ziyXM',
-                alt: 'The Office - The electric city',
+                altText: 'The Office - The electric city',
                 isVideo: true,
             },
         ],

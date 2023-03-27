@@ -1,10 +1,14 @@
-type EmailImageBlock = {
+export type EmailImageBlock = {
+    id: string;
+    type: 'IMAGE';
     image: string;
     link?: string;
     altText?: string;
 };
 
-type EmailTextBlock = {
+export type EmailTextBlock = {
+    id: string;
+    type: 'TEXT';
     title?: string;
     text: string;
 };

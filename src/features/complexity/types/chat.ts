@@ -1,12 +1,14 @@
-type TextMessage = {
+export type TextMessage = {
     id: string;
+    type: 'TEXT';
     text: string;
 };
 
-type MediaMessage = {
+export type MediaMessage = {
     id: string;
+    type: 'MEDIA';
     url: string;
-    alt: string;
+    altText?: string;
     isVideo: boolean;
 };
 
