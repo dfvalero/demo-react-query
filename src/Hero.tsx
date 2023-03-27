@@ -18,10 +18,10 @@ function Hero() {
         <Box sx={heroStyle}>
             <Box sx={heroContentStyle}>
                 <Typography component="h1" variant="h2" color="textPrimary" gutterBottom>
-                    React Query Demo
+                    Playground
                 </Typography>
                 <Typography variant="h6" color="textSecondary" paragraph>
-                    React Query as a State Manager
+                    Simple repository for learning purposes
                 </Typography>
             </Box>
         </Box>
